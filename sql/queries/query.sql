@@ -2,7 +2,7 @@
 SELECT * FROM expenses 
 WHERE user_id = ?;
 
--- name:GetExpensesByCategoryAndUserId :many
+-- name: GetExpensesByCategoryAndUserId :many
 SELECT * FROM expenses WHERE user_id = ? AND category = ?;
 
 -- name: CreateExpense :exec

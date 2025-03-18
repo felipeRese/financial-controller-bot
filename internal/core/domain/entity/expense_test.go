@@ -11,7 +11,7 @@ func TestExpense_IsValid_InvalidAmount(t *testing.T) {
 	// Given an expense with a non-positive amount and a valid category
 	expense := Expense{
 		ID:       uuid.New(),
-		Amount:   0, // Invalid amount
+		Amount:   0,             // Invalid amount
 		Category: "Alimentação", // Valid category
 	}
 
@@ -41,7 +41,7 @@ func TestExpense_IsValid_InvalidCategory(t *testing.T) {
 
 func TestNewExpense_WithInvalidAmount(t *testing.T) {
 	// When creating a new expense with an invalid amount
-	expense, err := NewExpense(0, "Alimentação")
+	expense, err := NewExpense(0, "Alimentação", "12212112")
 
 	// Then an error should be returned and no expense created
 	assert.Nil(t, expense)
@@ -51,7 +51,7 @@ func TestNewExpense_WithInvalidAmount(t *testing.T) {
 
 func TestNewExpense_WithInvalidCategory(t *testing.T) {
 	// When creating a new expense with an invalid category
-	expense, err := NewExpense(100.0, "InvalidCategory")
+	expense, err := NewExpense(100.0, "InvalidCategory", "12212112")
 
 	// Then an error should be returned and no expense created
 	assert.Nil(t, expense)
@@ -61,7 +61,7 @@ func TestNewExpense_WithInvalidCategory(t *testing.T) {
 
 func TestNewExpense_WithValidParams(t *testing.T) {
 	// When creating a new expense with valid parameters
-	expense, err := NewExpense(100.0, "Alimentação")
+	expense, err := NewExpense(100.0, "Alimentação", "12212112")
 
 	// Then no error should be returned and the expense fields should be correctly set
 	assert.NotNil(t, expense)
